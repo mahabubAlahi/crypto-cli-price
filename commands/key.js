@@ -23,10 +23,26 @@ const key = {
         }
     },
     show () {
-        console.log('Hello from Show');
+        try {
+            const keymanager = new KeyManager()
+
+            const key = keymanager.getKey()
+            console.log('Api key is- ', key.yellow);
+            return key;
+        } catch (error) {
+            console.log(error.message.red)
+        }
     },
     remove () {
-        console.log("Hello from remove");
+        try {
+            const keymanager = new KeyManager()
+
+            keymanager.deleteKey()
+            console.log('Key removed. ');
+            return;
+        } catch (error) {
+            console.log(error.message.red)
+        }
     }
 }
 
